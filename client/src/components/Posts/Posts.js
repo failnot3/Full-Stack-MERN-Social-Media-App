@@ -1,15 +1,22 @@
 import React from "react";
+import { Grid, CircularProgress } from "@material-ui/core";
+import { useSelector } from "react-redux";
 
-//import post component
-import Post from "./POST/Post";
+import Post from "./POST/Post.js";
+import useStyles from "./styles.js";
 
-const Posts = () => {
+const Posts = ({ setCurrentId }) => {
+  const posts = useSelector((state) => state.posts);
+  const classes = useStyles();
+
   return (
     <>
-      <h1>Posts</h1>
+      <h1>POSTing</h1>
+      <Post />
       <Post />
       <Post />
     </>
   );
 };
+
 export default Posts;
