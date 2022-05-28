@@ -2,7 +2,7 @@ import express from "express";
 
 //So in order to not clutter this file, I'm using the external
 // getPosts function
-import { getPosts } from "../controllers/posts.js";
+import { getPosts, createPost } from "../controllers/posts.js";
 
 const router = express.Router();
 
@@ -10,5 +10,6 @@ const router = express.Router();
 // posts is the starting point, not 127.0.0.1 !!!
 
 router.get("/", getPosts);
+router.post("/", createPost);
 
 export default router;
