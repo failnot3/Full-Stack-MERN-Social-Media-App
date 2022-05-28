@@ -3,11 +3,16 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+// Import router
+import postRoutes from "./routes/posts.js";
+
 // Import dotenv in ES6!
 import dotenv from "dotenv";
 dotenv.config({ path: "dev.env" });
 
 const app = express();
+
+app.use("/posts", postRoutes);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
