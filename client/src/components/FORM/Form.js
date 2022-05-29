@@ -3,10 +3,8 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 
-import express from "express";
-
 import useStyles from "./styles";
-import { createPost, updatePost } from "../../actions/posts.js";
+import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
@@ -59,7 +57,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant='h6'>
-          {currentId ? `Editing "${post.title}"` : "Creating a Posting"}
+          {currentId ? `Editing "${post.title}"` : "Creating a posting"}
         </Typography>
         <TextField
           name='creator'
