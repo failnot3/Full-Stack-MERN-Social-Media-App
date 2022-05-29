@@ -4,10 +4,11 @@ import express from "express";
 // getPosts function
 import {
   getPosts,
+  getPost,
   createPost,
   updatePost,
-  deletePost,
   likePost,
+  deletePost,
 } from "../controllers/posts.js";
 
 const router = express.Router();
@@ -17,6 +18,8 @@ const router = express.Router();
 
 router.get("/", getPosts);
 router.post("/", createPost);
+
+router.get("/:id", getPost);
 
 router.patch("/:id", updatePost);
 
