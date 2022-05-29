@@ -33,8 +33,10 @@ export const updatePost = (id, post) => async (dispatch) => {
   }
 };
 
+// to like a post
 export const likePost = (id) => async (dispatch) => {
   try {
+    //we change from api.updatePost => to likePost
     const { data } = await api.likePost(id);
 
     dispatch({ type: LIKE, payload: data });
