@@ -43,10 +43,12 @@ export const likePost = (id) => async (dispatch) => {
   }
 };
 
+// to delete a post
 export const deletePost = (id) => async (dispatch) => {
   try {
+    // we do not need to pass any data, we are not interested in returned data!
     await api.deletePost(id);
-
+    // since we don't need a response we can just do:
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
     console.log(error.message);

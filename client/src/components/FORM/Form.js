@@ -3,6 +3,8 @@ import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 
+import { useSelector } from "react-redux";
+
 import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts.js";
 
@@ -20,10 +22,16 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+  // useEffect Accepts two parameters - callback function and dependency array
+  // Dependency arrays are a concept that is tightly coupled to hooks in React (thus also to function components).
+  // Some hooks, like useEffect and useCallback have 2 arguments!
+  // The first one is a callback (a function), and the second one is the dependency array. It takes the form of an array of variables
   useEffect(() => {
     if (post) setPostData(post);
+    // we want to run the function when the post value changes
   }, [post]);
 
+  // Clear function resets the form fields to " ".
   const clear = () => {
     setCurrentId(0);
     setPostData({ creator: "", title: "", message: "", tags: "", selectedFile: "" });
@@ -37,6 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
       clear();
     } else {
       dispatch(updatePost(currentId, postData));
+      // we invoke clear after editing a post
       clear();
     }
   };
@@ -50,7 +59,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant='h6'>
-          {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
+          {currentId ? `Editing "${post.title}"` : "Creating a Posting"}
         </Typography>
         <TextField
           name='creator'

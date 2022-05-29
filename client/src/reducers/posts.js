@@ -1,5 +1,7 @@
 export default (posts = [], action) => {
   switch (action.type) {
+    case "DELETE":
+      return posts.filter((post) => post._id !== action.payload);
     case "UPDATE":
       // output of MAP method is ARRAY
       // action.payload is the updated post in this case.

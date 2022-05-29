@@ -16,9 +16,10 @@ const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  // as soon as we change the current ID
   useEffect(() => {
     dispatch(getPosts);
-  }, [dispatch]);
+  }, [currentId, dispatch]);
   return (
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>

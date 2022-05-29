@@ -1,4 +1,4 @@
-//import selectors from react-redux
+//import selector from react-redux
 import { useSelector } from "react-redux";
 
 import React from "react";
